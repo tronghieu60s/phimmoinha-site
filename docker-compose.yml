@@ -42,6 +42,7 @@ services:
     build:
       context: ./web
       dockerfile: ./Dockerfile
+      network: host
     volumes:
       - ./:/var/www/app
     ports:
