@@ -1,0 +1,78 @@
+version: "3"
+services:
+  redis:
+    container_name: redis
+    image: redis
+    volumes:
+      - ./data/redis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - common
+    restart: always
+
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data/db:/data/db
+    ports:
+      - 27017:27017
+    networks:
+      - common
+    restart: always
+
+  cms:
+    container_name: cms
+    build:
+      context: ./cms
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 8080:8080
+    networks:
+      - common
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+
+  web:
+    container_name: web
+    build:
+      context: ./web
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 80:80
+    networks:
+      - common
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: always
+
+  server:
+    container_name: server
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 4000:4000
+    links:
+      - redis
+      - mongo
+    networks:
+      - common
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      - redis
+      - mongo
+    restart: always
+
+networks:
+  common:
+    driver: bridge
