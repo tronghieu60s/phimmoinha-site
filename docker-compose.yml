@@ -55,7 +55,7 @@ services:
     volumes:
       - ./:/var/www/app
     ports:
-      - 80:80
+      - 3000:3000
     networks:
       - common
     restart: always
