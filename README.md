@@ -13,11 +13,21 @@ $ git submodule update --recursive --remote
 $ git pull --recurse-submodules
 ```
 
+## Docker
+
+```bash
+$ docker system prune -a
+$ docker volume prune -a
+$ docker network prune -a
+$ docker image prune -a
+$ docker container prune -a
+```
+
 ## Mongo Data
 
 ```bash
 $ mongodump --db=mongo --out="c:/opt/backup"
-$ mongorestore --db=mongo --host=194.233.78.169 --drop "c:/opt/backup/mongo"
+$ mongorestore --db=mongo --username root --password camngot0102st --host=194.233.78.169 --drop "c:/opt/backup/mongo"
 ```
 
 ## Docker Compose
