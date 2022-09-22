@@ -27,10 +27,6 @@ services:
     image: mongo
     volumes:
       - ./data/db:/data/db
-    environment:
-      - MONGO_INITDB_DATABASE=mongo
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=camngot0102st
     ports:
       - 27017:27017
     networks:
