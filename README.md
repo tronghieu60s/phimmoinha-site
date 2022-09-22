@@ -27,7 +27,7 @@ $ docker container prune -a
 
 ```bash
 $ mongodump --db=mongo --out="c:/opt/backup"
-$ mongorestore --db=mongo --username root --password camngot0102st --host=194.233.78.169 --drop "c:/opt/backup/mongo"
+$ mongorestore --db=mongo --host=194.233.78.169 --drop "c:/opt/backup/mongo"
 ```
 
 ## Docker Compose
