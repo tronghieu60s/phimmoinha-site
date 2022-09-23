@@ -16,11 +16,8 @@ $ git pull --recurse-submodules
 ## Docker
 
 ```bash
+$ docker system prune
 $ docker system prune -a
-$ docker volume prune -a
-$ docker network prune -a
-$ docker image prune -a
-$ docker container prune -a
 ```
 
 ## Docker Compose
@@ -37,16 +34,16 @@ $ docker-compose up -d --no-deps --build <service_name>
 
 ```bash
 $ mongodump --db=mongo --out="c:/opt/backup"
-$ mongorestore --db=mongo --host=194.233.78.169 --drop "c:/opt/backup/mongo"
+$ mongorestore --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --drop "c:/opt/backup/mongo"
 ```
 
 ## Mongo Authentication
 
 ```bash
-$ docker exec -it mongo bash
 $ mongosh
 $ use admin
-$ db.createUser({user: "root", pwd: "camngot0102st", roles: [ { role: "root", db: "admin" } ]})
-$ mongosh -u admin
+$ db.auth("root", <root_password>)
+$ db.changeUserPassword("root", <root_password>)
+$ db.createUser({ user: "root", pwd: <root_password>, roles: [ { role: "root", db: "admin" } ] })
 $ exit;
 ```
