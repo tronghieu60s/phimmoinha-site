@@ -31,6 +31,7 @@ services:
       - 27017:27017
     networks:
       - common
+    command: [--auth],
     restart: always
 
   cms:
