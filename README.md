@@ -27,6 +27,7 @@ $ docker-compose up -d nginx
 $ docker-compose up -d redis mongo server
 $ docker-compose up -d web cms
 $ docker-compose down
+$ docker-compose stop <service_name>
 $ docker-compose up -d --no-deps --build <service_name>
 ```
 
