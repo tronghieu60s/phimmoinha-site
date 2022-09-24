@@ -5,6 +5,12 @@
 IP: 194.233.78.169
 Domain: phimmoinha.com
 
+## Authentication
+
+Admin: admin/phimmoinha.!QAZxsw2
+Member: member/phimmoinha.@WSXcde3
+Kiet: tuankiet1705/phimmoinha.QWERTasdfg
+
 ## Git
 
 ```bash
