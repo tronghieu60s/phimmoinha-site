@@ -11,7 +11,6 @@ Domain: phimmoinha.com
 
 Admin: admin/phimmoinha.!QAZxsw2
 Member: member/phimmoinha.@WSXcde3
-Kiet: tuankiet1705/phimmoinha.QWERTasdfg
 
 ### Fshare Account
 
