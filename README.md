@@ -37,8 +37,8 @@ $ docker-compose up -d --no-deps --build <service_name>
 $ mongodump --db=mongo --out="c:/opt/backup"
 $ mongorestore --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --drop "c:/opt/backup/mongo"
 
-$ mongodump --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --out="c:/opt/backup/mongo"
-$ mongorestore --db=mongo --host=localhost --drop "c:/opt/backup/mongo"
+$ mongodump --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --out="c:/opt/backup/server"
+$ mongorestore --db=mongo --host=localhost --drop "c:/opt/backup/server/mongo"
 ```
 
 ## Mongo Authentication
