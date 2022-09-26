@@ -5,32 +5,6 @@
 IP: 194.233.78.169
 Domain: phimmoinha.com
 
-## Authentication
-
-### Admin Site
-
-Admin: admin/phimmoinha.!QAZxsw2
-Member: member/phimmoinha.@WSXcde3
-
-### Fshare Account
-
-User: camngot1708@gmail.com/phimmoinha.^&\*(yuio
-
-### Google Account
-
-User: phimmoisotrim2409@gmail.com/phimmoinha.$TGVbhy5
-User: phimmoinaruto1001@gmail.com/phimmoinha.^YHNmji8
-
-### Abyss Upload
-
-User: phimmoisotrim2409@gmail.com/phimmoinha.%RTYUujnb
-User: phimmoinaruto1001@gmail.com/phimmoinha.!@#$%qwert
-
-### Facebook Upload
-
-User: tronghieu2012s@gmail.com/phimmoinha.ASDFtyui
-User: phimmoinaruto1001@gmail.com/phimmoinha.!@#$%qwert
-
 ## Git
 
 ```bash
@@ -62,6 +36,9 @@ $ docker-compose up -d --no-deps --build <service_name>
 ```bash
 $ mongodump --db=mongo --out="c:/opt/backup"
 $ mongorestore --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --drop "c:/opt/backup/mongo"
+
+$ mongodump --db=mongo --username=root --password=<root_password> --authenticationDatabase=admin --host=194.233.78.169 --out="c:/opt/backup/mongo"
+$ mongorestore --db=mongo --host=localhost --drop "c:/opt/backup/mongo"
 ```
 
 ## Mongo Authentication
