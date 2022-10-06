@@ -1,6 +1,3 @@
-[submodule "server"]
-	path = server
-	url = https://github.com/tronghieu60s/phimmoinha-server.git
 [submodule "cms"]
 	path = cms
 	url = https://github.com/tronghieu60s/phimmoinha-cms.git
