@@ -7,3 +7,6 @@
 [submodule "server"]
 	path = server
 	url = https://github.com/tronghieu60s/phimmoinha-server.git
+[submodule "tools"]
+	path = tools
+	url = https://github.com/tronghieu60s/phimmoinha-tools.git
