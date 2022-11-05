@@ -10,3 +10,6 @@
 [submodule "tools"]
 	path = tools
 	url = https://github.com/tronghieu60s/phimmoinha-tools.git
+[submodule "schedule"]
+	path = schedule
+	url = https://github.com/tronghieu60s/phimmoinha-schedule.git
