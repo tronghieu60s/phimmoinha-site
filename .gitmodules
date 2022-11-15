@@ -1,3 +1,7 @@
+
+[submodule "cdn"]
+	path = cdn
+	url = https://github.com/tronghieu60s/phimmoinha-cdn.git
 [submodule "cms"]
 	path = cms
 	url = https://github.com/tronghieu60s/phimmoinha-cms.git
@@ -13,6 +17,3 @@
 [submodule "schedule"]
 	path = schedule
 	url = https://github.com/tronghieu60s/phimmoinha-schedule.git
-[submodule "cdn"]
-	path = cdn
-	url = https://github.com/tronghieu60s/phimmoinha-cdn.git
