@@ -13,3 +13,6 @@
 [submodule "schedule"]
 	path = schedule
 	url = https://github.com/tronghieu60s/phimmoinha-schedule.git
+[submodule "cdn"]
+	path = cdn
+	url = https://github.com/tronghieu60s/phimmoinha-cdn.git
