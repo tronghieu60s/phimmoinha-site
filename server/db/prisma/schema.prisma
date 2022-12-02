@@ -1,0 +1,320 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("APP_POSTGRES_URL")
+}
+
+model Assets {
+  Id        Int      @id @default(autoincrement())
+  User      Users?   @relation(fields: [User_Ref], references: [Id])
+  User_Ref  Int?
+  Type      String
+  Name      String
+  Size      Int?
+  Path      String?
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+}
+
+model Libraries {
+  Id        Int      @id @default(autoincrement())
+  User      Users    @relation(fields: [User_Ref], references: [Id])
+  User_Ref  Int
+  Type      String
+  Key       String
+  Value     String?
+  Color     String?
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+
+  @@unique([Type, Key])
+}
+
+model Roles {
+  Id                          Int                           @id @default(autoincrement())
+  Name                        String                        @unique
+  Description                 String?
+  CreatedAt                   DateTime                      @default(now())
+  UpdatedAt                   DateTime                      @default(now())
+  RolePermissionRelationships RolePermissionRelationships[]
+  Users                       Users[]
+}
+
+model Permissions {
+  Id                          Int                           @id @default(autoincrement())
+  Name                        String                        @unique
+  Description                 String?
+  CreatedAt                   DateTime                      @default(now())
+  UpdatedAt                   DateTime                      @default(now())
+  RolePermissionRelationships RolePermissionRelationships[]
+}
+
+model RolePermissionRelationships {
+  Role           Roles       @relation(fields: [Role_Ref], references: [Id])
+  Role_Ref       Int
+  Permission     Permissions @relation(fields: [Permission_Ref], references: [Id])
+  Permission_Ref Int
+
+  @@id([Role_Ref, Permission_Ref])
+}
+
+enum UsersStatus {
+  Active
+  Banned
+}
+
+model Users {
+  Id                      Int                       @id @default(autoincrement())
+  Role                    Roles                     @relation(fields: [Role_Ref], references: [Id])
+  Role_Ref                Int
+  UserName                String                    @unique
+  Email                   String                    @unique
+  Password                String?
+  IsAdministrator         Boolean                   @default(false)
+  FirstName               String?
+  LastName                String?
+  FullName                String?
+  Status                  UsersStatus               @default(Active)
+  ResetPasswordToken      String?
+  CreatedAt               DateTime                  @default(now())
+  UpdatedAt               DateTime                  @default(now())
+  Assets                  Assets[]
+  UserSections            UserSections[]
+  Movies                  Movies[]
+  Posts                   Posts[]
+  Taxonomies              Taxonomies[]
+  Libraries               Libraries[]
+  DynamicContentHistories DynamicContentHistories[]
+  MovieEpisodes           MovieEpisodes[]
+}
+
+enum UserSectionsStatus {
+  Active
+  Banned
+}
+
+enum UserSectionsOnlineStatus {
+  Away
+  Online
+  Offline
+}
+
+model UserSections {
+  Id           Int                      @id @default(autoincrement())
+  User         Users?                   @relation(fields: [User_Ref], references: [Id])
+  User_Ref     Int?
+  Ip           String?
+  Origin       String?
+  UserAgent    String?
+  Section_Id   String?
+  Socket_Id    String[]                 @default([])
+  Service_Id   String                   @unique
+  Status       UserSectionsStatus       @default(Active)
+  OnlineStatus UserSectionsOnlineStatus @default(Online)
+  CreatedAt    DateTime                 @default(now())
+  UpdatedAt    DateTime                 @default(now())
+  MovieReports MovieReports[]
+  MovieRatings MovieRatings[]
+}
+
+enum MoviesType {
+  Movie
+  Series
+}
+
+enum MoviesStatus {
+  Draft
+  Published
+  Trash
+}
+
+model Movies {
+  Id                         Int                          @id @default(autoincrement())
+  User                       Users                        @relation(fields: [User_Ref], references: [Id])
+  User_Ref                   Int
+  Type                       MoviesType                   @default(Movie)
+  Title                      String                       @unique
+  Content                    String?
+  Slug                       String                       @unique
+  Status                     MoviesStatus?                @default(Draft)
+  Views                      Int?                         @default(0)
+  Likes                      Int?                         @default(0)
+  Comment                    Boolean?                     @default(true)
+  Password                   String?
+  Avatar                     String?
+  Original                   String?
+  Duration                   Int?
+  Quality                    String?
+  Quantity                   Int?
+  Trailer                    String?
+  Publish                    Int?
+  DatePublish                DateTime?                    @default(now())
+  DateModified               DateTime?                    @default(now())
+  CreatedAt                  DateTime                     @default(now())
+  UpdatedAt                  DateTime                     @default(now())
+  MovieEpisodes              MovieEpisodes[]
+  MovieReports               MovieReports[]
+  MovieRatings               MovieRatings[]
+  MovieTaxonomyRelationships MovieTaxonomyRelationships[]
+}
+
+model MovieEpisodes {
+  Id        Int      @id @default(autoincrement())
+  User      Users    @relation(fields: [User_Ref], references: [Id])
+  User_Ref  Int
+  Movie     Movies   @relation(fields: [Movie_Ref], references: [Id])
+  Movie_Ref Int
+  Title     String
+  Slug      String
+  Order     Int?
+  Source    String?  @unique
+  Date      DateTime @default(now())
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+
+  @@unique([Movie_Ref, Title, Slug])
+}
+
+model MovieRatings {
+  Id              Int          @id @default(autoincrement())
+  Movie           Movies       @relation(fields: [Movie_Ref], references: [Id])
+  Movie_Ref       Int
+  UserSections    UserSections @relation(fields: [UserSection_Ref], references: [Id])
+  UserSection_Ref Int
+  Value           Int
+  CreatedAt       DateTime     @default(now())
+  UpdatedAt       DateTime     @default(now())
+
+  @@unique([Movie_Ref, UserSection_Ref])
+}
+
+enum MovieReportsStatus {
+  Pending
+  Approved
+  Rejected
+}
+
+model MovieReports {
+  Id              Int                 @id @default(autoincrement())
+  Movie           Movies              @relation(fields: [Movie_Ref], references: [Id])
+  Movie_Ref       Int
+  UserSections    UserSections        @relation(fields: [UserSection_Ref], references: [Id])
+  UserSection_Ref Int
+  Reason          String
+  Status          MovieReportsStatus? @default(Pending)
+  CreatedAt       DateTime            @default(now())
+  UpdatedAt       DateTime            @default(now())
+
+  @@unique([Movie_Ref, UserSection_Ref])
+}
+
+enum PostsType {
+  Post
+  Page
+}
+
+enum PostsStatus {
+  Draft
+  Published
+  Trash
+}
+
+model Posts {
+  Id                        Int                         @id @default(autoincrement())
+  User                      Users                       @relation(fields: [User_Ref], references: [Id])
+  User_Ref                  Int
+  Type                      PostsType                   @default(Post)
+  Title                     String                      @unique
+  Content                   String?
+  Slug                      String                      @unique
+  Status                    PostsStatus?                @default(Draft)
+  Views                     Int?                        @default(0)
+  Comment                   Boolean                     @default(true)
+  Password                  String?
+  Avatar                    String?
+  DatePublish               DateTime?                   @default(now())
+  DateModified              DateTime?                   @default(now())
+  CreatedAt                 DateTime                    @default(now())
+  UpdatedAt                 DateTime                    @default(now())
+  PostTaxonomyRelationships PostTaxonomyRelationships[]
+}
+
+enum TaxonomiesType {
+  Cast
+  Director
+  Country
+  Post_Category
+  Movie_Category
+  Tag
+}
+
+model Taxonomies {
+  Id                         Int                          @id @default(autoincrement())
+  User                       Users                        @relation(fields: [User_Ref], references: [Id])
+  User_Ref                   Int
+  Type                       TaxonomiesType
+  Name                       String
+  Slug                       String
+  Description                String?
+  CreatedAt                  DateTime                     @default(now())
+  UpdatedAt                  DateTime                     @default(now())
+  MovieTaxonomyRelationships MovieTaxonomyRelationships[]
+  PostTaxonomyRelationships  PostTaxonomyRelationships[]
+
+  @@unique([Type, Name, Slug])
+}
+
+model PostTaxonomyRelationships {
+  Post         Posts      @relation(fields: [Post_Ref], references: [Id])
+  Post_Ref     Int
+  Taxonomy     Taxonomies @relation(fields: [Taxonomy_Ref], references: [Id])
+  Taxonomy_Ref Int
+
+  @@unique([Post_Ref, Taxonomy_Ref])
+}
+
+model MovieTaxonomyRelationships {
+  Movie        Movies     @relation(fields: [Movie_Ref], references: [Id])
+  Movie_Ref    Int
+  Taxonomy     Taxonomies @relation(fields: [Taxonomy_Ref], references: [Id])
+  Taxonomy_Ref Int
+
+  @@unique([Movie_Ref, Taxonomy_Ref])
+}
+
+model DynamicContents {
+  Id                      Int                       @id @default(autoincrement())
+  Key                     String                    @unique
+  Value                   String?
+  CreatedAt               DateTime                  @default(now())
+  UpdatedAt               DateTime                  @default(now())
+  DynamicContentHistories DynamicContentHistories[]
+}
+
+model DynamicContentHistories {
+  Id                 Int             @id @default(autoincrement())
+  User               Users           @relation(fields: [User_Ref], references: [Id])
+  User_Ref           Int
+  DynamicContent     DynamicContents @relation(fields: [DynamicContent_Ref], references: [Id])
+  DynamicContent_Ref Int
+  Value              String?
+  PreviousValue      String?
+  CreatedAt          DateTime        @default(now())
+  UpdatedAt          DateTime        @default(now())
+}
+
+model Logs {
+  Id        Int      @id @default(autoincrement())
+  Type      String
+  Key       String
+  Log       String?
+  CreatedAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+}

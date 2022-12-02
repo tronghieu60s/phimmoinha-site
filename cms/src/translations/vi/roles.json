@@ -1,0 +1,14 @@
+{
+    "data.description": "Mô tả",
+    "data.name": "Tên",
+    "form.input.description": "Mô tả",
+    "form.input.name": "Tên",
+    "form.input.permissions": "Quyền hạn",
+    "actions.exists.name": "Tên vai trò đã được sử dụng.",
+    "actions.create.failed": "Không thể thêm vai trò.",
+    "actions.create.succeed": "Thêm vai trò thành công.",
+    "actions.delete.failed": "Không thể xóa vai trò này.",
+    "actions.delete.succeed": "Xóa vai trò thành công.",
+    "actions.update.failed": "Không thể cập nhật vai trò.",
+    "actions.update.succeed": "Cập nhật vai trò thành công."
+}

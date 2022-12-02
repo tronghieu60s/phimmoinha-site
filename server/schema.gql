@@ -1,0 +1,797 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+directive @upper on FIELD_DEFINITION
+
+type PaginationResult {
+  All: Boolean!
+  Page: Float!
+  PageSize: Float!
+  Total: Float!
+  PageTotal: Float!
+  NextPage: Float!
+  PreviousPage: Float!
+}
+
+type BooleanResponse {
+  Data: Boolean
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Permission {
+  Id: Float!
+  Name: String!
+  Description: String
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type PermissionResponse {
+  Data: Permission
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type PermissionsPaginationResponse {
+  Items: [Permission!]
+  Pagination: PaginationResult
+}
+
+type PermissionsResponse {
+  Data: PermissionsPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Role {
+  Id: Float!
+  Name: String!
+  Description: String
+  CreatedAt: String!
+  UpdatedAt: String!
+  Permissions: [Permission!]
+}
+
+type RoleResponse {
+  Data: Role
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type RolesPaginationResponse {
+  Items: [Role!]
+  Pagination: PaginationResult
+}
+
+type RolesResponse {
+  Data: RolesPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type User {
+  Id: Float!
+  Role: Role!
+  UserName: String!
+  Email: String!
+  Password: String!
+  IsAdministrator: Boolean!
+  FirstName: String
+  LastName: String
+  FullName: String
+  CreatedAt: String!
+  UpdatedAt: String!
+  UserSections: [UserSection!]
+}
+
+type UserResponse {
+  Data: User
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type UsersPaginationResponse {
+  Items: [User!]
+  Pagination: PaginationResult
+}
+
+type UsersResponse {
+  Data: UsersPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type UserSection {
+  Id: Float!
+  User: User
+  Section_Id: String
+  Socket_Id: String!
+  Service_Id: String!
+  Status: UserSectionsStatus!
+  OnlineStatus: UserSectionsOnlineStatus!
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+enum UserSectionsStatus {
+  Active
+  Banned
+}
+
+enum UserSectionsOnlineStatus {
+  Away
+  Online
+  Offline
+}
+
+type UserSectionPaginationResponse {
+  Items: [UserSection!]
+  Pagination: PaginationResult
+}
+
+type UserSectionResponse {
+  Data: UserSectionPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type SignInDataResponse {
+  User: User!
+  AccessToken: String!
+}
+
+type SignInResponse {
+  Data: SignInDataResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type SignUpResponse {
+  Data: User
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type ForgotPasswordResponse {
+  Data: User
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type DynamicContent {
+  Id: Float!
+  Key: String!
+  Value: String!
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type DynamicContentResponse {
+  Data: DynamicContent
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type DynamicContentsPaginationResponse {
+  Items: [DynamicContent!]
+  Pagination: PaginationResult
+}
+
+type DynamicContentsResponse {
+  Data: DynamicContentsPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Library {
+  Id: Float!
+  Type: String!
+  Key: String!
+  Value: String
+  Color: String
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type LibraryResponse {
+  Data: Library
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type LibrariesPaginationResponse {
+  Items: [Library!]
+  Pagination: PaginationResult
+}
+
+type LibrariesResponse {
+  Data: LibrariesPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Asset {
+  Id: Float!
+  User: User!
+  Type: String!
+  Name: String!
+  Size: Float
+  Path: String
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type AssetResponse {
+  Data: Asset
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type AssetsPaginationResponse {
+  Items: [Asset!]
+  Pagination: PaginationResult
+}
+
+type AssetsResponse {
+  Data: AssetsPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Taxonomy {
+  Id: Float!
+  Type: String!
+  Name: String!
+  Slug: String!
+  Description: String
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type TaxonomyResponse {
+  Data: Taxonomy
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type TaxonomiesPaginationResponse {
+  Items: [Taxonomy!]
+  Pagination: PaginationResult
+}
+
+type TaxonomiesResponse {
+  Data: TaxonomiesPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Movie {
+  Id: Float!
+  User: User!
+  Type: MoviesType!
+  Title: String!
+  Content: String
+  Slug: String!
+  Status: MoviesStatus
+  Views: Float
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  Original: String
+  Duration: Float
+  Quality: String
+  Quantity: Float
+  Trailer: String
+  Publish: Float
+  DatePublish: Float
+  DateModified: Float
+  Episodes: [Episode!]
+  EpisodesCount: Float
+  Taxonomies: [Taxonomy!]
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+enum MoviesType {
+  Movie
+  Series
+}
+
+enum MoviesStatus {
+  Draft
+  Published
+  Trash
+}
+
+type MovieResponse {
+  Data: Movie
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type MoviesPaginationResponse {
+  Items: [Movie!]
+  Pagination: PaginationResult
+}
+
+type MoviesResponse {
+  Data: MoviesPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Episode {
+  Id: Float!
+  Title: String!
+  Slug: String!
+  Order: Float
+  Source: String
+  Date: Float
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+type Post {
+  Id: Float!
+  User: User!
+  Type: PostsType!
+  Title: String!
+  Content: String
+  Slug: String!
+  Status: PostsStatus
+  Views: Float
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  DatePublish: Float
+  DateModified: Float
+  Taxonomies: [Taxonomy!]
+  CreatedAt: String!
+  UpdatedAt: String!
+}
+
+enum PostsType {
+  Post
+  Page
+}
+
+enum PostsStatus {
+  Draft
+  Published
+  Trash
+}
+
+type PostResponse {
+  Data: Post
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type PostsPaginationResponse {
+  Items: [Post!]
+  Pagination: PaginationResult
+}
+
+type PostsResponse {
+  Data: PostsPaginationResponse
+  InsertId: Float
+  RowsAffected: Float
+}
+
+type Query {
+  user(id: Float, filter: UserFilter): UserResponse!
+  users(sort: UserSort, filter: UserFilter, pagination: PaginationInput): UsersResponse!
+  userSections(sort: UserSectionSort, filter: UserSectionFilter, pagination: PaginationInput): UserSectionResponse!
+  role(id: Float, filter: RoleFilter): RoleResponse!
+  roles(sort: RoleSort, filter: RoleFilter, pagination: PaginationInput): RolesResponse!
+  permission(id: Float, filter: PermissionFilter): PermissionResponse!
+  permissions(sort: PermissionSort, filter: PermissionFilter, pagination: PaginationInput): PermissionsResponse!
+  movie(id: Float, filter: MovieFilter, isFilterId: Boolean): MovieResponse!
+  movies(sort: MovieSort, filter: MovieFilter, pagination: PaginationInput): MoviesResponse!
+  taxonomy(id: Float, filter: TaxonomyFilter): TaxonomyResponse!
+  taxonomies(sort: TaxonomySort, filter: TaxonomyFilter, pagination: PaginationInput): TaxonomiesResponse!
+  post(id: Float, filter: PostFilter, isFilterId: Boolean): PostResponse!
+  posts(sort: PostSort, filter: PostFilter, pagination: PaginationInput): PostsResponse!
+  dynamicContents(sort: DynamicContentSort, filter: DynamicContentFilter, pagination: PaginationInput): DynamicContentsResponse!
+  library(id: Float, filter: LibraryFilter): LibraryResponse!
+  libraries(sort: LibrarySort, filter: LibraryFilter, pagination: PaginationInput): LibrariesResponse!
+  asset(id: Float, filter: AssetFilter): AssetResponse!
+  assets(sort: AssetSort, filter: AssetFilter, pagination: PaginationInput): AssetsResponse!
+}
+
+input UserFilter {
+  UserName: FilterOperatorInput
+  Email: FilterOperatorInput
+  FirstName: FilterOperatorInput
+  LastName: FilterOperatorInput
+  FullName: FilterOperatorInput
+}
+
+input FilterOperatorInput {
+  Eq: String
+  Ne: String
+  In: [String!]
+  NIn: [String!]
+  Ct: String
+  Gt: Float
+  Gte: Float
+  Lt: Float
+  Lte: Float
+  Stw: String
+  Enw: String
+  Mode: ModeFilterOperator
+}
+
+enum ModeFilterOperator {
+  Default
+  Insensitive
+}
+
+input UserSort {
+  Id: ModeSortOperator
+  UserName: ModeSortOperator
+  Email: ModeSortOperator
+  FirstName: ModeSortOperator
+  LastName: ModeSortOperator
+  FullName: ModeSortOperator
+  CreatedAt: ModeSortOperator
+  UpdatedAt: ModeSortOperator
+}
+
+enum ModeSortOperator {
+  Asc
+  Desc
+}
+
+input PaginationInput {
+  All: Boolean
+  Page: Float
+  PageSize: Float
+}
+
+input UserSectionSort {
+  Status: ModeSortOperator
+}
+
+input UserSectionFilter {
+  Status: FilterOperatorInput
+}
+
+input RoleFilter {
+  Id: FilterOperatorInput
+  Name: FilterOperatorInput
+  Description: FilterOperatorInput
+  CreatedAt: ModeSortOperator
+  UpdatedAt: ModeSortOperator
+}
+
+input RoleSort {
+  Id: ModeSortOperator
+  Name: ModeSortOperator
+  Description: ModeSortOperator
+}
+
+input PermissionFilter {
+  Id: FilterOperatorInput
+  Name: FilterOperatorInput
+  Description: FilterOperatorInput
+}
+
+input PermissionSort {
+  Id: ModeSortOperator
+  Name: ModeSortOperator
+  Description: ModeSortOperator
+  CreatedAt: ModeSortOperator
+  UpdatedAt: ModeSortOperator
+}
+
+input MovieFilter {
+  Id: FilterOperatorInput
+  Title: FilterOperatorInput
+  Status: FilterOperatorInput
+  Original: FilterOperatorInput
+  Publish: FilterOperatorInput
+}
+
+input MovieSort {
+  Id: ModeSortOperator
+  Title: ModeSortOperator
+  Status: ModeSortOperator
+  Original: ModeSortOperator
+  Publish: ModeSortOperator
+}
+
+input TaxonomyFilter {
+  Id: FilterOperatorInput
+  Type: FilterOperatorInput
+  Name: FilterOperatorInput
+  Slug: FilterOperatorInput
+  Description: FilterOperatorInput
+}
+
+input TaxonomySort {
+  Id: ModeSortOperator
+  Name: ModeSortOperator
+  Slug: ModeSortOperator
+  Description: ModeSortOperator
+  CreatedAt: ModeSortOperator
+  UpdatedAt: ModeSortOperator
+}
+
+input PostFilter {
+  Id: FilterOperatorInput
+  Type: FilterOperatorInput
+  Title: FilterOperatorInput
+  Status: FilterOperatorInput
+}
+
+input PostSort {
+  Id: ModeSortOperator
+  Title: ModeSortOperator
+  Status: ModeSortOperator
+}
+
+input DynamicContentSort {
+  Id: String
+  Key: String
+  Value: String
+}
+
+input DynamicContentFilter {
+  Id: FilterOperatorInput
+  Key: FilterOperatorInput
+  Value: FilterOperatorInput
+}
+
+input LibraryFilter {
+  Id: FilterOperatorInput
+  Type: FilterOperatorInput
+  Key: FilterOperatorInput
+  Value: FilterOperatorInput
+  Color: FilterOperatorInput
+}
+
+input LibrarySort {
+  Id: ModeSortOperator
+  Type: ModeSortOperator
+  Key: ModeSortOperator
+  Value: ModeSortOperator
+  Color: ModeSortOperator
+}
+
+input AssetFilter {
+  Id: FilterOperatorInput
+}
+
+input AssetSort {
+  Id: ModeSortOperator
+}
+
+type Mutation {
+  signIn(input: SignInInput!): SignInResponse!
+  signUp(input: SignUpInput!): SignUpResponse!
+  forgotPassword(input: ForgotPasswordInput!): ForgotPasswordResponse!
+  createUser(input: CreateUserInput!): UserResponse!
+  updateUser(id: Float!, input: UpdateUserInput!): UserResponse!
+  deleteManyUsers(ids: [Float!]!): BooleanResponse!
+  createRole(input: CreateRoleInput!): RoleResponse!
+  updateRole(id: Float!, input: UpdateRoleInput!): RoleResponse!
+  deleteRole(id: Float!): RoleResponse!
+  createPermission(input: CreatePermissionInput!): PermissionResponse!
+  updatePermission(id: Float!, input: UpdatePermissionInput!): PermissionResponse!
+  deletePermission(id: Float!): PermissionResponse!
+  importMovies(input: CreateAssetInput!): AssetResponse!
+  exportMovies(filter: MovieFilter): AssetResponse!
+  importEpisodes(input: CreateAssetInput!): AssetResponse!
+  exportEpisodes: AssetResponse!
+  createMovie(input: CreateMovieInput!): MovieResponse!
+  updateMovie(id: Float!, input: UpdateMovieInput!): MovieResponse!
+  deleteMovie(id: Float!): MovieResponse!
+  deleteManyMovies(ids: [Float!]!): BooleanResponse!
+  deleteTrashMovies(ids: [Float!]): BooleanResponse!
+  restoreManyMovies(ids: [Float!]!): BooleanResponse!
+  increaseViewMovie(id: Float!): BooleanResponse!
+  createTaxonomy(input: CreateTaxonomyInput!): TaxonomyResponse!
+  updateTaxonomy(id: Float!, input: UpdateTaxonomyInput!): TaxonomyResponse!
+  deleteManyTaxonomies(ids: [Float!]!): BooleanResponse!
+  createPost(input: CreatePostInput!): PostResponse!
+  updatePost(id: Float!, input: UpdatePostInput!): PostResponse!
+  deletePost(id: Float!): PostResponse!
+  deleteManyPosts(ids: [Float!]!): BooleanResponse!
+  deleteTrashPosts(ids: [Float!]): BooleanResponse!
+  restoreManyPosts(ids: [Float!]!): BooleanResponse!
+  increaseViewPost(id: Float!): BooleanResponse!
+  createDynamicContent(input: CreateDynamicContentInput!): DynamicContentResponse!
+  updateDynamicContent(id: Float!, input: UpdateDynamicContentInput!): DynamicContentResponse!
+  createLibrary(input: CreateLibraryInput!): LibraryResponse!
+  updateLibrary(id: Float!, input: UpdateLibraryInput!): LibraryResponse!
+  deleteLibrary(id: Float!): LibraryResponse!
+  createAsset(input: CreateAssetInput!): BooleanResponse!
+  deleteManyAssets(ids: [Float!]!): BooleanResponse!
+}
+
+input SignInInput {
+  Login: String!
+  Password: String!
+  Service_Id: String!
+  Expires: Float
+}
+
+input SignUpInput {
+  UserName: String!
+  Email: String!
+  Password: String!
+}
+
+input ForgotPasswordInput {
+  Email: String!
+}
+
+input CreateUserInput {
+  Role_Ref: Float
+  UserName: String!
+  Email: String!
+  Password: String!
+  IsAdministrator: Boolean
+  FirstName: String
+  LastName: String
+  FullName: String
+}
+
+input UpdateUserInput {
+  Role_Ref: Float
+  Password: String
+  IsAdministrator: Boolean
+  FirstName: String
+  LastName: String
+  FullName: String
+}
+
+input CreateRoleInput {
+  Name: String!
+  Description: String
+  Permissions: [Float!]
+}
+
+input UpdateRoleInput {
+  Name: String
+  Description: String
+  Permissions: [Float!]
+}
+
+input CreatePermissionInput {
+  Name: String!
+  Description: String
+}
+
+input UpdatePermissionInput {
+  Name: String
+  Description: String
+}
+
+input CreateAssetInput {
+  File: Upload!
+}
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
+
+input CreateMovieInput {
+  Type: MoviesType!
+  Title: String!
+  Content: String
+  Slug: String!
+  Status: MoviesStatus
+  Views: Float
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  Original: String
+  Duration: Float
+  Quality: String
+  Quantity: Float
+  Trailer: String
+  Publish: Float
+  DatePublish: String
+  Episodes: [EpisodeInput!]
+  Taxonomies: [TaxonomyInput!]
+}
+
+input EpisodeInput {
+  Id: Float
+  Title: String!
+  Slug: String!
+  Order: Float
+  Source: String
+  Date: Float
+}
+
+input TaxonomyInput {
+  Id: Float
+  Type: String
+  Name: String
+  Slug: String
+  Description: String
+}
+
+input UpdateMovieInput {
+  Type: MoviesType!
+  Title: String
+  Content: String
+  Slug: String
+  Status: MoviesStatus
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  Original: String
+  Duration: Float
+  Quality: String
+  Quantity: Float
+  Trailer: String
+  Publish: Float
+  DatePublish: String
+  Episodes: [EpisodeInput!]
+  Taxonomies: [TaxonomyInput!]
+}
+
+input CreateTaxonomyInput {
+  Type: String!
+  Name: String!
+  Slug: String
+  Description: String
+}
+
+input UpdateTaxonomyInput {
+  Name: String
+  Slug: String
+  Description: String
+}
+
+input CreatePostInput {
+  Type: PostsType!
+  Title: String!
+  Content: String
+  Slug: String!
+  Status: PostsStatus
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  DatePublish: String
+  Taxonomies: [TaxonomyInput!]
+}
+
+input UpdatePostInput {
+  Title: String
+  Content: String
+  Slug: String
+  Status: PostsStatus
+  Comment: Boolean
+  Password: String
+  Avatar: String
+  DatePublish: String
+  Taxonomies: [TaxonomyInput!]
+}
+
+input CreateDynamicContentInput {
+  Key: String!
+  Value: String
+}
+
+input UpdateDynamicContentInput {
+  Value: String!
+}
+
+input CreateLibraryInput {
+  Type: String!
+  Key: String!
+  Value: String
+  Color: String
+}
+
+input UpdateLibraryInput {
+  Key: String
+  Value: String
+  Color: String
+}

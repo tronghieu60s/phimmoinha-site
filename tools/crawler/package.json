@@ -1,0 +1,24 @@
+{
+  "name": "data-film",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "serve": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tronghieu60s/data-film.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tronghieu60s/data-film/issues"
+  },
+  "homepage": "https://github.com/tronghieu60s/data-film#readme",
+  "dependencies": {
+    "objects-to-csv": "^1.3.6",
+    "puppeteer": "^15.5.0"
+  }
+}

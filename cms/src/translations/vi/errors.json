@@ -1,0 +1,13 @@
+{
+    "Unknown": "Lỗi không Xác Định",
+    "Validate": "Vui lòng kiểm tra lại thông tin",
+    "Unauthorized": "Không Được Phép",
+    "Failed to fetch": "Không Tải Được Dữ Liệu",
+    "Unexpected token < in JSON at position 0": "Không Thể Truy Xuất Dữ Liệu",
+    "ERROR_ROLE_NOT_FOUND": "Không tìm thấy vai trò.",
+    "ERROR_SIGN_IN_FAILED": "Tài khoản hoặc mật khẩu không chính xác.",
+    "ERROR_SIGN_IN_NOT_ADMIN": "Bạn không có quyền truy cập vào trang này.",
+    "ERROR_SIGN_UP_EXISTED": "Tài khoản đã tồn tại. Vui lòng đăng nhập.",
+    "ERROR_SIGN_UP_PASSWORD": "Mật khẩu không khớp. Vui lòng thử lại.",
+    "ERROR_USER_NOT_FOUND": "Không tìm thấy người dùng."
+}

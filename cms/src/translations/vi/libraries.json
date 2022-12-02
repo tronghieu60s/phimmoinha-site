@@ -1,0 +1,17 @@
+{
+    "data.type": "Loại",
+    "data.key": "Key",
+    "data.value": "Giá trị",
+    "data.color": "Màu sắc",
+    "form.input.type": "Loại",
+    "form.input.key": "Key",
+    "form.input.value": "Giá trị",
+    "form.input.color": "Màu sắc",
+    "actions.exists.key": "Key thư viện đã được sử dụng.",
+    "actions.create.failed": "Không thể thêm thư viện.",
+    "actions.create.succeed": "Thêm thư viện thành công.",
+    "actions.delete.failed": "Không thể xóa thư viện này.",
+    "actions.delete.succeed": "Xóa thư viện thành công.",
+    "actions.update.failed": "Không thể cập nhật thư viện.",
+    "actions.update.succeed": "Cập nhật thư viện thành công."
+}

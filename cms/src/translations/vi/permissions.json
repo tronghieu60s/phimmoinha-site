@@ -1,0 +1,14 @@
+{
+    "data.description": "Mô tả",
+    "data.name": "Tên",
+    "form.input.description": "Mô tả",
+    "form.input.name": "Tên",
+    "form.input.permissions": "Quyền hạn",
+    "actions.exists.name": "Tên quyền hạn đã được sử dụng.",
+    "actions.create.failed": "Không thể thêm quyền hạn.",
+    "actions.create.succeed": "Thêm quyền hạn thành công.",
+    "actions.delete.failed": "Không thể xóa quyền hạn này.",
+    "actions.delete.succeed": "Xóa quyền hạn thành công.",
+    "actions.update.failed": "Không thể cập nhật quyền hạn.",
+    "actions.update.succeed": "Cập nhật quyền hạn thành công."
+}

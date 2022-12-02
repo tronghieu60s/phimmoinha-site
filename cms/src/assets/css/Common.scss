@@ -1,0 +1,150 @@
+/* Common */
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+  &-track {
+    background: #f4f5f7;
+  }
+  &-thumb {
+    border-radius: 2px;
+    background: #2b2e34;
+    &:hover {
+      background: #555;
+    }
+  }
+}
+
+/* QL Editor */
+.ql-editor {
+  font-size: 15px;
+  overflow-y: scroll;
+  resize: vertical;
+  &.ql-blank::before {
+    font-style: normal !important;
+  }
+}
+
+@for $i from 1 through 10 {
+  .h-editor-#{$i * 100} .ql-editor {
+    height: $i * 100px;
+  }
+}
+
+@for $i from 1 through 10 {
+  .mh-editor-#{$i * 100} .ql-editor {
+    min-height: $i * 100px;
+  }
+}
+
+/* Center */
+.center {
+  width: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+/* Section */
+.section {
+  &.small {
+    margin: 0.75rem 0 !important;
+  }
+  &.middle {
+    margin: 1.5rem 0 !important;
+  }
+  &.large {
+    margin: 3rem 0 !important;
+  }
+}
+
+/* Button */
+.ant-btn {
+  display: inline-flex !important;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+/* Form.Item */
+.ant-form-item {
+  margin-bottom: 16px !important;
+  &-label {
+    text-align: left !important;
+  }
+  &.ant-form-item-with-help {
+    margin-bottom: 8px !important;
+  }
+}
+
+/* Image */
+.ant-image-img.custom {
+  width: 60px !important;
+  height: 60px !important;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Table */
+.ant-table-cell .ant-editable-cell {
+  border: 1px solid transparent;
+  &:hover,
+  &:focus,
+  &.active {
+    border: 1px solid #d9d9d9 !important;
+  }
+}
+
+/* Modal */
+.ant-modal.ant-upload-modal {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  bottom: 20px;
+  left: 20px;
+  width: calc(100% - 40px) !important;
+  height: calc(100% - 40px) !important;
+  margin: 0;
+  padding: 0;
+  .ant-modal-content {
+    height: 100%;
+  }
+}
+
+/* Checkbox.Group */
+.ant-checkbox-group {
+  &-item {
+    margin-top: 2px !important;
+    margin-bottom: 2px !important;
+  }
+  &-horizontal {
+    .ant-checkbox-group-item {
+      padding: 0px 3px;
+    }
+  }
+  &-vertical {
+    .ant-checkbox-group-item {
+      display: flex;
+      padding: 3px 0px;
+    }
+  }
+}
+
+/* Upload */
+.ant-upload.ant-upload-select-picture-card {
+  position: relative;
+  .ant-upload-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+}
+
+/* Segmented */
+.ant-segmented-group {
+  flex-wrap: wrap;
+}

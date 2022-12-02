@@ -1,0 +1,50 @@
+.Layout {
+  font-family: 'Open Sans', sans-serif;
+  min-height: 100vh !important;
+  aside.ant-layout-sider {
+    .Logo {
+      width: 75%;
+      height: 70px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-top: 15px;
+      padding-bottom: 20px;
+      margin: 0 auto;
+      img {
+        width: 100%;
+      }
+    }
+    .sider-menu {
+      li.ant-menu-item,
+      li.ant-menu-submenu div.ant-menu-submenu-title {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+  &-Main {
+    header.ant-layout-header {
+      padding: 0;
+      background-color: #fff;
+    }
+  }
+  &-Content {
+    margin: 20px 40px 0px 40px;
+    @media (max-width: 768px) {
+      margin: 20px 20px;
+    }
+    div.ant-card-head-title {
+      text-transform: capitalize;
+    }
+  }
+  &-Auth {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &-Card {
+      width: 90%;
+      max-width: 400px;
+    }
+  }
+}
