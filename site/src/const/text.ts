@@ -1,0 +1,10 @@
+export const MOVIE_TEXT = 'Phim lẻ';
+export const PAGE_TEXT = 'Trang';
+export const PUBLISH_TEXT = 'Năm phát hành';
+export const SEARCH_TEXT = 'Từ khóa';
+export const SERIES_TEXT = 'Phim bộ';
+export const TAG_TEXT = 'Từ khóa';
+export const WATCH_TEXT = 'Xem Phim';
+export const WATCH_TRAILER_TEXT = 'Xem Trailer';
+export const HISTORY = 'Lịch sử';
+export const FOLLOWED = 'Đã theo dõi';

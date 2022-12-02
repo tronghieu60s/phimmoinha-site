@@ -1,0 +1,21 @@
+{
+    "button.follow": "Theo dõi",
+    "button.history": "Lịch sử xem",
+    "button.next": "Tập tiếp",
+    "button.report": "Báo lỗi",
+    "info.actor": "Diễn viên",
+    "info.country": "Quốc gia",
+    "info.director": "Đạo diễn",
+    "info.duration": "Thời lượng",
+    "info.genre": "Thể loại",
+    "info.publish": "Năm phát hành",
+    "info.quality": "Chất lượng",
+    "info.tag": "Thẻ",
+    "info.updating": "Đang cập nhật",
+    "server.fbo": "FBO",
+    "server.hydrax": "Hydrax",
+    "title.episode": "Danh sách tập",
+    "title.server": "Server",
+    "loading": "Đang tải dữ liệu phim...",
+    "loading.error": "Lỗi khi tải dữ liệu phim..."
+}

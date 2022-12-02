@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://phimmoinha.com
+
+# Sitemaps
+Sitemap: https://phimmoinha.com/sitemap.xml
